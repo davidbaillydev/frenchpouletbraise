@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171640">
+  <meta name="description" content="French Poulet Braisé à Brive-la-Gaillarde : poulet braisé, wings, tenders et recettes généreuses. Sur place, à emporter et livraison.">
+  <title>French Poulet Braisé — Le goût de la braise à Brive</title>
+  <link rel="icon" type="image/png" href="assets/logo-trim.png">
+  <link rel="canonical" href="https://frenchpouletbraise.com/">
+  <meta property="og:url" content="https://frenchpouletbraise.com/">
+  <meta property="og:title" content="French Poulet Braisé — Brive-la-Gaillarde">
+  <meta property="og:description" content="Poulet braisé, burgers, wings et recettes généreuses. Commandez en ligne ou rendez-vous à Brive.">
+  <style>
+    :root {
+      --navy: #1d3028;
+      --navy-deep: #111a16;
+      --red: #bf412e;
+      --yellow: #d7b86d;
+      --cream: #f2eee4;
+      --paper: #fbf8ef;
+      --ink: #292a23;
+      --muted: #716f64;
+      --line: #ded6c4;
+      --shadow: 0 18px 48px rgba(30, 30, 22, .12);
+      --radius: 20px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    body { margin: 0; color: var(--ink); background: var(--cream); font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 16px; line-height: 1.55; }
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid #f0aa00; outline-offset: 4px; border-radius: 4px; }
+    .wrap { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
+    .topline { background: var(--red); color: white; text-align: center; padding: 7px 16px; font-size: 14px; font-weight: 700; letter-spacing: .04em; }
+    .site-header { background: var(--paper); border-bottom: 1px solid rgba(11,75,120,.08); }
+    .header-inner { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; min-width: 0; }
+    .brand img { display: block; width: 42px; height: 54px; object-fit: contain; }
+    .brand-name { color: var(--navy); font-size: 15px; line-height: 1.15; font-weight: 850; letter-spacing: -.02em; }
+    .brand-name span { display: block; color: var(--red); font-size: 11px; text-transform: uppercase; letter-spacing: .16em; margin-top: 4px; }
+    .nav { display: flex; align-items: center; gap: clamp(18px, 3vw, 38px); }
+    .nav a { font-size: 14px; font-weight: 700; text-decoration: none; color: #263946; }
+    .nav a:hover { color: var(--red); }
+    .nav .nav-cta { color: white; background: var(--navy); padding: 11px 17px; border-radius: 999px; }
+    .nav .nav-cta:hover { color: white; background: var(--navy-deep); }
+    .hero { position: relative; overflow: hidden; color: white; background: var(--navy); }
+    .hero::before, .hero::after { content: none; }
+    .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 54px; padding-block: clamp(56px, 8vw, 96px); min-height: 535px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--yellow); font-size: 13px; line-height: 1.2; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; }
+    .eyebrow::before { content: ""; width: 22px; height: 2px; background: var(--yellow); }
+    h1 { max-width: 640px; margin: 22px 0 18px; font-size: clamp(44px, 6vw, 72px); line-height: .99; letter-spacing: -.055em; font-weight: 850; }
+    h1 em { color: var(--yellow); font-style: normal; }
+    .hero-copy { max-width: 510px; color: rgba(255,255,255,.83); font-size: 18px; line-height: 1.6; margin: 0; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .button { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 19px; border: 2px solid transparent; border-radius: 999px; text-decoration: none; font-size: 15px; font-weight: 800; transition: transform .18s ease, background .18s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { color: var(--navy-deep); background: var(--yellow); }
+    .button-primary:hover { background: #ffe778; }
+    .button-outline { color: white; border-color: rgba(255,255,255,.55); }
+    .button-outline:hover { background: rgba(255,255,255,.1); }
+    .hero-note { display: flex; align-items: center; gap: 10px; margin-top: 25px; color: rgba(255,255,255,.73); font-size: 14px; }
+    .hero-note .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 5px rgba(233,40,46,.18); }
+    .hero-visual { position: relative; min-width: 0; }
+    .food-frame { overflow: hidden; position: relative; background: #070a0c; border: 7px solid rgba(255,255,255,.12); border-radius: 30px; box-shadow: 0 26px 56px rgba(0,0,0,.26); transform: rotate(1.1deg); }
+    .food-frame img { display: block; width: 100%; aspect-ratio: 1.28 / 1; object-fit: cover; }
+    .image-caption { position: absolute; left: 18px; right: 18px; bottom: 18px; display: flex; align-items: end; justify-content: space-between; gap: 14px; padding: 15px 17px; border: 1px solid rgba(255,255,255,.22); border-radius: 15px; background: rgba(7,20,29,.78); backdrop-filter: blur(8px); }
+    .image-caption small { display: block; color: var(--yellow); font-size: 11px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .image-caption strong { display: block; color: white; font-size: 18px; line-height: 1.2; margin-top: 4px; }
+    .caption-mark { display: grid; place-items: center; flex: 0 0 38px; height: 38px; border-radius: 50%; color: var(--navy); background: var(--yellow); font-weight: 900; font-size: 17px; }
+    .hero-sticker { position: absolute; top: -22px; right: -19px; z-index: 2; width: 108px; height: 108px; display: grid; place-content: center; border: 5px solid var(--paper); border-radius: 50%; background: var(--red); color: white; text-align: center; line-height: 1.05; transform: rotate(8deg); box-shadow: 0 8px 20px rgba(0,0,0,.18); }
+    .hero-sticker span { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; }
+    .hero-sticker strong { margin-top: 4px; font-size: 18px; }
+    .highlights { background: var(--yellow); }
+    .highlights-inner { min-height: 76px; display: grid; grid-template-columns: repeat(3, 1fr); align-items: center; }
+    .highlight { display: flex; align-items: center; justify-content: center; gap: 11px; padding: 14px 10px; color: var(--navy-deep); font-size: 14px; font-weight: 800; text-align: center; }
+    .highlight + .highlight { border-left: 1px solid rgba(7,55,86,.2); }
+    .highlight-mark { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; color: white; background: var(--navy); font-size: 14px; flex: 0 0 auto; }
+    section.content-section { padding-block: clamp(66px, 8vw, 104px); }
+    .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 28px; margin-bottom: 34px; }
+    .section-heading .eyebrow { color: var(--red); }
+    .section-heading .eyebrow::before { background: var(--red); }
+    h2 { margin: 12px 0 0; color: var(--navy-deep); font-size: clamp(34px, 4vw, 50px); line-height: 1.04; letter-spacing: -.045em; }
+    .section-intro { max-width: 390px; margin: 0 0 3px; color: var(--muted); font-size: 16px; }
+    .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .menu-card { display: flex; flex-direction: column; min-height: 265px; padding: 25px 25px 23px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); box-shadow: 0 4px 12px rgba(25,38,45,.035); }
+    .menu-card-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .menu-symbol { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 14px; background: #eaf2f6; color: var(--navy); font-size: 21px; font-weight: 800; }
+    .menu-tag { color: var(--red); font-size: 11px; text-transform: uppercase; font-weight: 850; letter-spacing: .11em; }
+    .menu-card h3 { margin: 22px 0 8px; color: var(--navy-deep); font-size: 21px; letter-spacing: -.025em; line-height: 1.2; }
+    .menu-card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+    .price-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 20px; }
+    .price-row span { color: var(--muted); font-size: 13px; }
+    .price-row strong { color: var(--navy); font-size: 15px; white-space: nowrap; }
+    .menu-foot { display: flex; justify-content: space-between; align-items: center; gap: 22px; margin-top: 22px; padding: 18px 22px; border-radius: 16px; color: white; background: var(--navy); }
+    .menu-foot p { margin: 0; font-weight: 700; }
+    .menu-foot small { display: block; color: rgba(255,255,255,.72); font-size: 13px; font-weight: 500; }
+    .button-light { flex: 0 0 auto; color: var(--navy-deep); background: white; }
+    .button-light:hover { background: var(--yellow); }
+    .catalog-section { background: #f4f0e7; }
+    .catalog-note { margin: -8px 0 20px; padding: 15px 18px; border-left: 4px solid var(--yellow); border-radius: 10px; color: #384b56; background: #fffdf8; font-size: 14px; }
+    .catalog-note strong { color: var(--navy-deep); }
+    .catalog-list { display: grid; gap: 10px; }
+    .catalog-group { overflow: hidden; border: 1px solid var(--line); border-radius: 15px; background: var(--paper); }
+    .catalog-group summary { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 58px; padding: 14px 19px; color: var(--navy-deep); cursor: pointer; list-style: none; font-weight: 850; }
+    .catalog-group summary::-webkit-details-marker { display: none; }
+    .catalog-group summary::after { content: "+"; display: grid; place-items: center; flex: 0 0 27px; width: 27px; height: 27px; border-radius: 50%; color: white; background: var(--navy); font-size: 18px; line-height: 1; }
+    .catalog-group[open] summary::after { content: "−"; background: var(--red); }
+    .catalog-group summary:focus-visible { outline: 3px solid #f0aa00; outline-offset: -4px; }
+    .catalog-group summary small { margin-left: auto; color: var(--muted); font-size: 12px; font-weight: 650; }
+    .product-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 22px; padding: 0 19px 14px; border-top: 1px solid var(--line); }
+    .catalog-item { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; min-width: 0; padding: 13px 0; border-bottom: 1px solid #eee9e0; }
+    .catalog-item:last-child:nth-child(odd) { border-bottom: 0; }
+    .catalog-item span { min-width: 0; }
+    .catalog-item strong { display: block; color: var(--ink); font-size: 14px; line-height: 1.35; }
+    .catalog-item small { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; line-height: 1.45; }
+    .catalog-item b { flex: 0 0 auto; color: var(--navy); font-size: 13px; white-space: nowrap; }
+    .catalog-action { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 18px; padding: 18px 20px; border-radius: 15px; color: white; background: var(--navy); }
+    .catalog-action span { color: rgba(255,255,255,.82); font-size: 14px; }
+    .contact-lines { margin-top: 12px !important; font-size: 14px; line-height: 1.8; }
+    .contact-lines a { color: var(--navy); text-underline-offset: 3px; }
+    .visit-card.dark .contact-lines a { color: var(--yellow); }
+    .footer-brand span { font-size: 12px; font-weight: 500; color: rgba(255,255,255,.75); }
+    .site-footer a { color: rgba(255,255,255,.82); text-underline-offset: 3px; }
+    .site-footer a:hover { color: var(--yellow); }
+    .live-menu-panel { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 44px; padding: clamp(28px, 5vw, 58px); border-radius: 26px; color: white; background: var(--navy); }
+    .live-menu-panel .eyebrow { color: var(--yellow); }
+    .live-menu-panel .eyebrow::before { background: var(--yellow); }
+    .live-menu-panel h2 { color: white; margin-bottom: 18px; }
+    .live-menu-panel p { max-width: 540px; margin: 0 0 24px; color: rgba(255,255,255,.82); }
+    .live-menu-card { min-height: 265px; display: flex; flex-direction: column; justify-content: space-between; padding: 27px; border: 1px solid rgba(255,255,255,.28); border-radius: 21px; background: linear-gradient(145deg, rgba(255,218,69,.15), rgba(255,255,255,.06)); }
+    .live-menu-label { color: var(--yellow); font-size: 12px; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
+    .live-menu-card strong { color: white; font-size: clamp(30px, 4vw, 44px); line-height: .98; letter-spacing: -.045em; }
+    .live-menu-pill { align-self: flex-start; padding: 8px 12px; border: 1px solid rgba(255,255,255,.35); border-radius: 999px; color: rgba(255,255,255,.86); font-size: 13px; }
+    .story { color: white; background: var(--red); overflow: hidden; }
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 58px; }
+    .story .eyebrow { color: #fff2bd; }
+    .story .eyebrow::before { background: #fff2bd; }
+    .story h2 { max-width: 540px; color: white; }
+    .story-copy { max-width: 520px; margin: 20px 0 0; color: rgba(255,255,255,.9); font-size: 17px; }
+    .story-points { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 28px; }
+    .story-point { padding: 15px 16px; border: 1px solid rgba(255,255,255,.36); border-radius: 14px; background: rgba(255,255,255,.08); }
+    .story-point strong { display: block; font-size: 15px; }
+    .story-point span { display: block; margin-top: 4px; color: rgba(255,255,255,.79); font-size: 13px; }
+    .story-art { position: relative; padding: 34px; border-radius: 28px; color: var(--navy); background: var(--yellow); }
+    .story-art::before, .story-art::after { content: none; }
+    .story-art-inner { position: relative; z-index: 1; padding: 28px; border: 1px solid rgba(11,75,120,.18); border-radius: 20px; background: rgba(255,255,255,.44); }
+    .story-art .big-quote { font-size: 58px; font-weight: 900; line-height: .8; color: var(--red); }
+    .story-art blockquote { margin: 16px 0 18px; font-size: clamp(25px, 3vw, 36px); line-height: 1.08; letter-spacing: -.045em; font-weight: 850; }
+    .story-art p { margin: 0; color: #365264; font-size: 14px; }
+    .visit { background: var(--paper); }
+    .visit-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 24px; }
+    .visit-card { min-height: 250px; padding: 30px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--cream); }
+    .visit-card.dark { color: white; background: var(--navy); border-color: var(--navy); }
+    .visit-card .eyebrow { color: var(--red); }
+    .visit-card .eyebrow::before { background: var(--red); }
+    .visit-card.dark .eyebrow { color: var(--yellow); }
+    .visit-card.dark .eyebrow::before { background: var(--yellow); }
+    .visit-card h3 { margin: 14px 0 10px; color: var(--navy-deep); font-size: 25px; line-height: 1.15; letter-spacing: -.03em; }
+    .visit-card.dark h3 { color: white; }
+    .visit-card p { max-width: 450px; margin: 0; color: var(--muted); }
+    .visit-card.dark p { color: rgba(255,255,255,.78); }
+    .visit-address { margin-top: 18px !important; font-weight: 750; color: var(--navy) !important; }
+    .visit-card.dark .visit-address { color: white !important; }
+    .visit-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; color: var(--red); font-size: 14px; font-weight: 850; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    .visit-card.dark .visit-link { color: var(--yellow); }
+    .site-footer { padding: 24px 0; color: rgba(255,255,255,.78); background: var(--navy-deep); font-size: 13px; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .footer-brand { color: white; font-weight: 800; }
+    .footer-inner p { margin: 0; }
+    @media (max-width: 840px) {
+      .hero-inner { grid-template-columns: 1fr .9fr; gap: 32px; min-height: 490px; }
+      .hero-sticker { width: 90px; height: 90px; right: -10px; }
+      .menu-grid { grid-template-columns: repeat(2, 1fr); }
+      .menu-card:last-child { grid-column: 1 / -1; min-height: 220px; }
+      .story-grid { gap: 30px; }
+    }
+    @media (max-width: 640px) {
+      html { scroll-padding-top: 70px; }
+      .wrap { width: min(100% - 36px, 520px); }
+      .topline { font-size: 12px; padding-block: 7px; }
+      .header-inner { min-height: 68px; gap: 12px; }
+      .brand { flex: 0 0 auto; }
+      .brand img { width: 39px; height: 48px; }
+      .brand-name { display: none; }
+      .nav { gap: clamp(10px, 3vw, 16px); }
+      .nav a { font-size: 14px; white-space: nowrap; }
+      .nav .nav-cta { padding: 9px 10px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 30px; padding-block: 54px 45px; }
+      h1 { max-width: 540px; margin-top: 18px; font-size: clamp(43px, 12vw, 60px); }
+      .hero-copy { font-size: 16px; }
+      .hero-visual { width: calc(100% - 12px); margin-inline: auto; }
+      .food-frame { border-width: 5px; border-radius: 23px; }
+      .food-frame img { aspect-ratio: 1.35 / 1; }
+      .hero-sticker { top: -14px; right: -11px; width: 78px; height: 78px; border-width: 4px; }
+      .hero-sticker span { font-size: 9px; }
+      .hero-sticker strong { font-size: 15px; }
+      .image-caption { left: 12px; right: 12px; bottom: 12px; padding: 12px; }
+      .image-caption strong { font-size: 16px; }
+      .highlights-inner { grid-template-columns: 1fr; padding-block: 6px; }
+      .highlight { justify-content: flex-start; padding: 8px 6px; text-align: left; }
+      .highlight + .highlight { border-left: 0; border-top: 1px solid rgba(7,55,86,.2); }
+      section.content-section { padding-block: 64px; }
+      .section-heading { display: block; margin-bottom: 26px; }
+      .section-intro { margin-top: 14px; }
+      .menu-grid { grid-template-columns: 1fr; gap: 12px; }
+      .menu-card, .menu-card:last-child { grid-column: auto; min-height: 0; padding: 21px; }
+      .menu-card h3 { margin-top: 17px; }
+      .menu-foot { align-items: flex-start; flex-direction: column; padding: 19px; gap: 14px; }
+      .catalog-note { margin-top: -6px; }
+      .product-list { grid-template-columns: 1fr; padding-inline: 16px; }
+      .catalog-group summary { padding-inline: 16px; }
+      .catalog-action { align-items: flex-start; flex-direction: column; padding: 18px; }
+      .catalog-item b { font-size: 13px; }
+      .contact-lines { overflow-wrap: anywhere; }
+      .live-menu-panel { grid-template-columns: 1fr; gap: 25px; padding: 24px; }
+      .live-menu-card { min-height: 205px; padding: 22px; }
+      .story-grid { grid-template-columns: 1fr; gap: 32px; }
+      .story-copy { font-size: 16px; }
+      .story-points { gap: 10px; }
+      .story-point { padding: 13px; }
+      .story-art { padding: 22px; }
+      .story-art::before { inset: 12px; }
+      .story-art-inner { padding: 23px; }
+      .visit-grid { grid-template-columns: 1fr; gap: 12px; }
+      .visit-card { min-height: 0; padding: 23px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+    @font-face { font-family: "Anton"; src: url("assets/fonts/anton-latin.woff2") format("woff2"); font-display: swap; }
+    @font-face { font-family: "Permanent Marker"; src: url("assets/fonts/permanent-marker-latin.woff2") format("woff2"); font-display: swap; }
+    body { font-family: "Trebuchet MS", system-ui, sans-serif; }
+    a:focus-visible { outline-color: var(--yellow); }
+    .topline { padding-block: 9px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
+    .site-header { border-bottom-color: rgba(29,48,40,.12); }
+    .brand-name { color: var(--navy-deep); }
+    .brand-name span { color: var(--red); }
+    .nav a { letter-spacing: .02em; }
+    .nav a:hover { color: var(--red); }
+    .nav .nav-cta { background: var(--navy); }
+    .hero {
+      background: radial-gradient(ellipse at 82% 32%, rgba(191,65,46,.24), transparent 34%), linear-gradient(125deg, #111a16 0%, #1d3028 58%, #263b30 100%);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: .14;
+      background-image: repeating-linear-gradient(135deg, transparent 0 34px, rgba(215,184,109,.38) 35px, transparent 36px 68px);
+      mask-image: linear-gradient(90deg, transparent 4%, black 100%);
+    }
+    .eyebrow { font-size: 11px; letter-spacing: .2em; }
+    h1 { font-family: "Anton", Impact, sans-serif; font-size: clamp(52px, 7vw, 82px); font-weight: 400; line-height: .96; letter-spacing: .005em; text-transform: uppercase; }
+    h1 em { color: var(--yellow); }
+    .hero-copy { max-width: 470px; }
+    .button { border-radius: 5px; letter-spacing: .015em; }
+    .button-primary { color: var(--navy-deep); }
+    .food-frame { border: 1px solid rgba(215,184,109,.7); border-radius: 4px; transform: rotate(0); box-shadow: 0 30px 70px rgba(0,0,0,.4); }
+    .food-frame img { aspect-ratio: 1.16 / 1; }
+    .image-caption { border-color: rgba(215,184,109,.35); border-radius: 3px; background: rgba(17,26,22,.86); }
+    .caption-mark { border-radius: 3px; }
+    .hero-sticker { border: 1px solid var(--yellow); border-radius: 50%; background: var(--yellow); color: var(--navy-deep); transform: rotate(8deg); }
+    .hero-sticker span { letter-spacing: .15em; }
+    .highlights { background: var(--navy); }
+    .highlight { color: var(--paper); }
+    .highlight + .highlight { border-color: rgba(215,184,109,.28); }
+    .highlight-mark { border-radius: 3px; color: var(--paper); background: var(--red); font-size: 11px; }
+    h2 { color: var(--navy-deep); font-family: Georgia, "Times New Roman", serif; font-weight: 500; letter-spacing: -.045em; }
+    .section-heading .eyebrow { color: var(--red); }
+    .menu-card { border-radius: 4px; background: var(--paper); box-shadow: var(--shadow); transition: transform .2s ease, box-shadow .2s ease; }
+    .menu-card:hover { transform: translateY(-4px); box-shadow: 0 22px 50px rgba(30,30,22,.14); }
+    .menu-symbol { border-radius: 3px; color: var(--navy-deep); background: #e9e1d0; font-family: "Anton", Impact, sans-serif; font-size: 19px; font-weight: 400; }
+    .menu-tag { color: var(--red); letter-spacing: .15em; }
+    .menu-card h3 { color: var(--navy); font-family: Georgia, "Times New Roman", serif; font-size: 23px; font-weight: 600; }
+    .menu-foot, .catalog-action { border-radius: 4px; background: var(--navy); }
+    .catalog-section { background: #ebe5d8; }
+    .catalog-note { border-left-color: var(--red); border-radius: 3px; background: var(--paper); }
+    .catalog-group { border-radius: 4px; }
+    .catalog-group summary { color: var(--navy-deep); }
+    .catalog-group summary::after { border-radius: 3px; background: var(--navy); }
+    .catalog-item b { color: var(--red); }
+    .live-menu-panel { border: 1px solid rgba(215,184,109,.4); border-radius: 4px; background: radial-gradient(ellipse at 92% 10%, rgba(191,65,46,.22), transparent 35%), var(--navy-deep); }
+    .live-menu-card { border-color: rgba(215,184,109,.42); border-radius: 4px; background: linear-gradient(145deg, rgba(215,184,109,.14), rgba(255,255,255,.025)); }
+    .live-menu-card strong { font-family: "Anton", Impact, sans-serif; font-weight: 400; letter-spacing: .015em; text-transform: uppercase; }
+    .live-menu-pill { border-radius: 3px; }
+    .story { background: var(--red); }
+    .story h2 { color: white; }
+    .story-art { border-radius: 4px; color: var(--paper); background: var(--navy); }
+    .story-art-inner { border-color: rgba(215,184,109,.45); border-radius: 3px; background: rgba(255,255,255,.035); }
+    .story-art .big-quote { color: var(--yellow); }
+    .story-art p { color: rgba(255,255,255,.72); }
+    .visit { background: var(--paper); }
+    .visit-card { border-radius: 4px; background: var(--cream); }
+    .visit-card.dark { background: var(--navy); border-color: var(--navy); }
+    .visit-card h3 { font-family: Georgia, "Times New Roman", serif; font-weight: 600; }
+    .visit-link { color: var(--red); }
+    .site-footer { background: var(--navy-deep); }
+    @media (max-width: 640px) {
+      h1 { font-size: clamp(46px, 12.2vw, 56px); }
+      .food-frame img { aspect-ratio: 1.25 / 1; }
+    }
+    :root {
+      --navy: #24234f;
+      --navy-deep: #171640;
+      --red: #f04e38;
+      --yellow: #d6ff3f;
+      --cream: #f3f0e9;
+      --paper: #fffdf7;
+      --ink: #1d1b3d;
+      --muted: #69677b;
+      --line: #dedbe0;
+      --shadow: 0 16px 42px rgba(27,25,61,.1);
+    }
+    .topline { background: var(--yellow); color: var(--navy-deep); }
+    .site-header { background: var(--paper); }
+    .hero {
+      background-color: var(--navy-deep);
+      background-image: radial-gradient(circle at 89% 19%, rgba(240,78,56,.82) 0 7px, transparent 8px), radial-gradient(circle at 93% 24%, rgba(214,255,63,.85) 0 3px, transparent 4px), radial-gradient(circle at 85% 28%, rgba(214,255,63,.7) 0 2px, transparent 3px), linear-gradient(135deg, #171640, #29275b 68%, #383366);
+    }
+    .hero::before {
+      opacity: .16;
+      background-image: radial-gradient(rgba(255,255,255,.7) .8px, transparent .8px);
+      background-size: 8px 8px;
+      mask-image: linear-gradient(90deg, transparent 5%, black 100%);
+    }
+    .eyebrow { color: var(--yellow); }
+    .hero-sticker { border-color: var(--paper); background: var(--red); color: white; }
+    .highlights { background: var(--yellow); }
+    .highlight { color: var(--navy-deep); }
+    .highlight + .highlight { border-color: rgba(36,35,79,.2); }
+    .highlight-mark { background: var(--red); color: white; }
+    h2 { color: var(--navy-deep); }
+    .section-heading .eyebrow { color: var(--red); }
+    .section-heading .eyebrow::before { background: var(--red); }
+    .menu-card { border-radius: 12px; box-shadow: 0 5px 18px rgba(27,25,61,.055); }
+    .menu-card:hover { box-shadow: 0 18px 34px rgba(27,25,61,.12); }
+    .menu-symbol { border-radius: 50%; color: var(--navy-deep); background: var(--yellow); }
+    .menu-card h3 { color: var(--navy-deep); }
+    .menu-foot, .catalog-action { background: var(--navy-deep); }
+    .catalog-section { background: #e9e6ef; }
+    .catalog-note { border-left-color: var(--red); }
+    .catalog-group { border-radius: 12px; }
+    .catalog-group summary::after { color: var(--navy-deep); background: var(--yellow); }
+    .catalog-group[open] summary::after { color: white; background: var(--red); }
+    .catalog-item b { color: var(--red); }
+    .live-menu-panel { border-color: rgba(214,255,63,.38); background: radial-gradient(circle at 91% 14%, rgba(240,78,56,.45) 0 4px, transparent 5px), radial-gradient(circle at 87% 22%, rgba(214,255,63,.72) 0 2px, transparent 3px), linear-gradient(135deg, #171640, #29275b); }
+    .live-menu-card { border-color: rgba(214,255,63,.5); background: linear-gradient(145deg, rgba(214,255,63,.12), rgba(255,255,255,.045)); }
+    .live-menu-label { color: var(--yellow); }
+    .story { background: var(--red); }
+    .story .eyebrow { color: var(--yellow); background: transparent; }
+    .story .eyebrow::before { background: var(--yellow); }
+    .story-art { color: var(--paper); background: var(--navy-deep); }
+    .story-art-inner { border-color: rgba(214,255,63,.38); background: rgba(255,255,255,.035); }
+    .story-art .big-quote { color: var(--yellow); }
+    .story-art p { color: rgba(255,255,255,.76); }
+    .visit-card { border-radius: 12px; }
+    .visit-card.dark { background: var(--navy-deep); border-color: var(--navy-deep); }
+    .visit-card.dark .eyebrow { color: var(--yellow); background: transparent; }
+    .visit-card.dark .eyebrow::before { background: var(--yellow); }
+    .visit-link { color: var(--red); }
+    .visit-card.dark .visit-link { color: var(--yellow); }
+    .site-footer { background: var(--navy-deep); }
+  </style>
+</head>
+<body>
+  <div class="topline">Le goût de la braise, au cœur de Brive</div>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#accueil" aria-label="French Poulet Braisé, accueil">
+        <img src="assets/logo-trim.png" alt="">
+        <span class="brand-name">French Poulet Braisé<span>Brive-la-Gaillarde</span></span>
+      </a>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="#carte">Carte</a>
+        <a href="#restaurant">Restaurant</a>
+        <a class="nav-cta" href="https://commande.frenchpouletbraise.com/french-poulet-braise?src=link">Commander <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero" id="accueil">
+      <div class="wrap hero-inner">
+        <div class="hero-text">
+          <span class="eyebrow">La générosité à la française</span>
+          <h1>Le bon poulet.<br><em>La braise en plus.</em></h1>
+          <p class="hero-copy">Du poulet braisé aux wings croustillantes, des recettes généreuses à partager ou à savourer en solo, au cœur de Brive.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://commande.frenchpouletbraise.com/french-poulet-braise?src=link">Commander en ligne <span aria-hidden="true">↗</span></a>
+            <a class="button button-outline" href="#venir">Nous trouver <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="hero-note"><span class="dot" aria-hidden="true"></span> Sur place · À emporter · Livraison</div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-sticker" aria-label="Depuis 2026"><span>Depuis</span><strong>2026</strong></div>
+          <div class="food-frame">
+            <img src="assets/restaurant-banner.jpg" alt="Burger, frites, wrap et poulet servis par French Poulet Braisé">
+            <div class="image-caption">
+              <div><small>La carte maison</small><strong>Généreuse &amp; gourmande</strong></div>
+              <span class="caption-mark" aria-hidden="true">FPB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="highlights" aria-label="Nos engagements">
+      <div class="wrap highlights-inner">
+        <div class="highlight"><span class="highlight-mark" aria-hidden="true">01</span> Des recettes généreuses</div>
+        <div class="highlight"><span class="highlight-mark" aria-hidden="true">02</span> À savourer sur place ou à emporter</div>
+        <div class="highlight"><span class="highlight-mark" aria-hidden="true">03</span> Au 28 avenue de Paris, à Brive</div>
+      </div>
+    </div>
+    <section class="content-section" id="carte">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><span class="eyebrow">À la carte</span><h2>Les favoris<br>de la maison.</h2></div>
+          <p class="section-intro">Du poulet braisé aux recettes croustillantes, voici quelques incontournables à retrouver chez French Poulet Braisé.</p>
+        </div>
+        <div class="menu-grid">
+          <article class="menu-card">
+            <div class="menu-card-top"><span class="menu-symbol" aria-hidden="true">01</span><span class="menu-tag">La spécialité</span></div>
+            <h3>Poulet braisé</h3>
+            <p>La spécialité maison, à retrouver sur la carte de commande.</p>
+          </article>
+          <article class="menu-card">
+            <div class="menu-card-top"><span class="menu-symbol" aria-hidden="true">02</span><span class="menu-tag">À partager</span></div>
+            <h3>Burgers &amp; tacos</h3>
+            <p>Des recettes généreuses à découvrir dans la carte en ligne.</p>
+          </article>
+          <article class="menu-card">
+            <div class="menu-card-top"><span class="menu-symbol" aria-hidden="true">03</span><span class="menu-tag">Les généreux</span></div>
+            <h3>Wings, bowls &amp; tenders</h3>
+            <p>Des recettes croustillantes, des bowls et des accompagnements selon la carte du moment.</p>
+          </article>
+        </div>
+        <div class="menu-foot">
+          <p>Le menu et les tarifs à jour.<small>Les options et disponibilités sont gérées sur la plateforme de commande.</small></p>
+          <a class="button button-light" href="#carte-complete">Voir la carte à jour <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section catalog-section" id="carte-complete">
+      <div class="wrap">
+        <div class="live-menu-panel">
+          <div class="live-menu-copy">
+            <span class="eyebrow">La carte en direct</span>
+            <h2>Le menu et les tarifs,<br>toujours à jour.</h2>
+            <p>La carte complète, les options, les allergènes et les disponibilités sont consultables sur la plateforme de commande. Ainsi, les informations du site vitrine ne remplacent pas le menu de référence.</p>
+            <a class="button button-primary" href="https://commande.frenchpouletbraise.com/french-poulet-braise?src=link">Voir le menu à jour <span aria-hidden="true">↗</span></a>
+            <div id="order-widget" aria-label="Ouvrir la commande en ligne"></div>
+          </div>
+          <div class="live-menu-card" aria-label="Menu et commande en ligne">
+            <span class="live-menu-label">French Poulet Braisé</span>
+            <strong>Choisissez.<br>Commandez.<br>Savourez.</strong>
+            <span class="live-menu-pill">Menu officiel · commande en ligne</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="content-section story" id="restaurant">
+      <div class="wrap story-grid">
+        <div>
+          <span class="eyebrow">French Poulet Braisé</span>
+          <h2>Une envie de bon.<br>Une adresse à retenir.</h2>
+          <p class="story-copy">Une cuisine généreuse autour du poulet braisé, et une carte qui va des burgers aux bowls. Commandez à emporter, faites-vous livrer ou passez nous voir à Brive.</p>
+          <div class="story-points">
+            <div class="story-point"><strong>La braise</strong><span>Notre spécialité au menu</span></div>
+            <div class="story-point"><strong>Le choix</strong><span>Wings, bowls, wraps &amp; plus</span></div>
+          </div>
+        </div>
+        <div class="story-art" aria-label="Une adresse à découvrir à Brive">
+          <div class="story-art-inner">
+            <span class="big-quote" aria-hidden="true">“</span>
+            <blockquote>Un bon repas, ça commence par une bonne envie.</blockquote>
+            <p>Poulet braisé · Recettes généreuses · Brive-la-Gaillarde</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="content-section visit" id="venir">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><span class="eyebrow">À bientôt</span><h2>On vous attend<br>à Brive.</h2></div>
+          <p class="section-intro">Retrouvez-nous en centre-ville et passez nous voir pour un repas sur place ou à emporter.</p>
+        </div>
+        <div class="visit-grid">
+          <article class="visit-card">
+            <span class="eyebrow">L'adresse</span>
+            <h3>French Poulet Braisé</h3>
+            <p>Une pause généreuse au cœur de Brive-la-Gaillarde.</p>
+            <p class="visit-address">28 avenue de Paris<br>19100 Brive-la-Gaillarde</p><p class="contact-lines"><a href="tel:+33758174063">07 58 17 40 63</a><br><a href="mailto:frenchpoulet38@gmail.com">frenchpoulet38@gmail.com</a></p>
+            <a class="visit-link" href="https://www.google.com/maps/search/?api=1&amp;query=French+Poulet+Brais%C3%A9%2C+28+Avenue+de+Paris%2C+19100+Brive-la-Gaillarde" target="_blank" rel="noopener">Itinéraire Google Maps <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="visit-card dark">
+            <span class="eyebrow">Sur place · à emporter · livraison</span>
+            <h3>Votre prochain repas<br>se passe ici.</h3>
+            <p>Consultez le menu, les tarifs, les options et les disponibilités en temps réel sur notre plateforme de commande.</p>
+            <a class="visit-link" href="https://commande.frenchpouletbraise.com/french-poulet-braise?src=link">Commander en ligne <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p class="footer-brand">French Poulet Braisé<br><span>07 58 17 40 63 · frenchpoulet38@gmail.com</span></p>
+      <p>28 avenue de Paris · 19100 Brive-la-Gaillarde</p>
+      <p><a href="https://commande.frenchpouletbraise.com/french-poulet-braise/mentions-legales">Mentions légales</a> · <a href="https://commande.frenchpouletbraise.com/french-poulet-braise/confidentialite">Confidentialité</a> · <a href="https://commande.frenchpouletbraise.com/french-poulet-braise/cgv">CGV</a> · <a href="https://commande.frenchpouletbraise.com/french-poulet-braise/cookies">Cookies</a> · © 2026</p>
+    </div>
+  </footer>
+<script src="https://commande.frenchpouletbraise.com/embed.js" data-restaurant="french-poulet-braise" data-label="Commander en ligne" data-color="#d4a017" data-mode="inline" data-target="#order-widget" async></script>
+</body>
+</html>
