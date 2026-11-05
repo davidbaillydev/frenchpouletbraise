@@ -6,6 +6,7 @@ FRENCH POULET BRAISÉ — SITE VITRINE
 - Les boutons directs et le widget utilisent commande.frenchpouletbraise.com.
 - Le site vitrine est prévu pour frenchpouletbraise.com.
 
-Cloudflare Pages : site statique, sans commande de build, dossier de publication = racine du dépôt (.).
+Cloudflare Pages : https://frenchpouletbraise.pages.dev
+Site statique, sans commande de build, dossier de publication = racine du dépôt (.).
 Le domaine est actuellement géré par Squarespace DNS ; préserver le record commande.frenchpouletbraise.com lors du raccordement.
 Pour prévisualiser localement : ouvrir index.html dans un navigateur.
